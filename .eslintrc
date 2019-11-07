@@ -1,0 +1,39 @@
+{
+  "parser": "babel-eslint",
+  // añade "prettier" (y si quieres "prettier/react") a las opciones de "extends"
+
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+
+  "extends": ["airbnb", "prettier"],
+  // y por ultimo, en la llave de "plugins" añade el plugin de eslint para prettier
+  "plugins": ["prettier"],
+
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "max-len": [
+      1,
+      120,
+      {
+        "tabWidth": 2,
+        "ignoreComments": true
+      }
+    ],
+    "indent": ["error", 4],
+    "no-console": 0,
+    "linebreak-style": 0,
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ]
+  }
+}
