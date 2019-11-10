@@ -19,7 +19,7 @@ describe('Block', () => {
     console.log(previousBlock.hash);
 
     expect(block.timestamp).toEqual(timestamp);
-    expect(block.previusHash).toEqual(previousBlock.hash);
+    expect(block.previousHash).toEqual(previousBlock.hash);
     expect(block.data).toEqual(data);
     expect(block.hash).toEqual(hash);
   });
@@ -28,7 +28,7 @@ describe('Block', () => {
     const block = Block.mine(previousBlock, data);
 
     expect(block.hash.length).toEqual(64);
-    expect(block.previusHash).toEqual(previousBlock.hash);
+    expect(block.previousHash).toEqual(previousBlock.hash);
     expect(block.data).toEqual(data);
   });
 

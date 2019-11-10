@@ -8,31 +8,31 @@ class Block {
     return new this(timestamp, undefined, 'g3n3s1s-h4sh', 'I like rame.');
   }
 
-  static mine(previusBlock, data) {
+  static mine(previousBlock, data) {
     const timestamp = Date.now();
-    const { hash: previusHash } = previusBlock;
-    const hash = Block.hash(timestamp, previusHash, data);
+    const { hash: previousHash } = previousBlock;
+    const hash = Block.hash(timestamp, previousHash, data);
 
-    return new this(timestamp, previusHash, hash, data);
+    return new this(timestamp, previousHash, hash, data);
   }
 
-  static hash(timestamp, previusHash, data) {
-    return SHA256(`${timestamp}${previusHash}${data}`).toString();
+  static hash(timestamp, previousHash, data) {
+    return SHA256(`${timestamp}${previousHash}${data}`).toString();
   }
 
-  constructor(timestamp, previusHash, hash, data) {
+  constructor(timestamp, previousHash, hash, data) {
     this.timestamp = timestamp;
-    this.previusHash = previusHash;
+    this.previousHash = previousHash;
     this.hash = hash;
     this.data = data;
   }
 
   toString() {
-    const { timestamp, previusHash, hash, data } = this;
+    const { timestamp, previousHash, hash, data } = this;
 
     return `Block -
         timestamp   :${timestamp}
-        previusHash :${previusHash}
+        previousHash :${previousHash}
         hash        :${hash}
         data        :${data}
         `;
